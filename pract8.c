@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
 
-double expo(double x) __attribute__((cdecl));
+double expo(double) __attribute__((cdecl));
 
 main ()
 {
@@ -14,5 +13,9 @@ main ()
 	exit(-1);
     }
     y = expo(x);
+    if (y == -1) {
+	fprintf(stderr, "Se ha producido overflow o underflow\n");
+	exit(-1);
+    }
     printf("10^%.6g = %.15g\n", x, y);
 }
