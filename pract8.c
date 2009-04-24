@@ -2,6 +2,8 @@
 #include <math.h>
 #include <stdlib.h>
 
+double expo(double x) __attribute__((cdecl));
+
 main ()
 {
     double x, y;
