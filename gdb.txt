@@ -1,0 +1,10 @@
+display/i $pc
+display/x $mm0
+display/x $mm1
+display/x $mm2
+display/x $mm3
+display/x $eax
+display/x $ebx
+display/x $edx
+display/x $ecx
+display/x $esi
