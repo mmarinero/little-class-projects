@@ -1,3 +1,5 @@
 *.bmp
 *.o
 a.out
+fundido
+.*.swp
