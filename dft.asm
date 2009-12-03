@@ -18,12 +18,16 @@ dft:
     mov ecx, n
     mov dword i, 0
     mov dword n2, ecx
-    lea eax, xr
-    lea ebx, xi
-    lea edx, matrizr
-    lea esi, matrizi
+    shr dword n, 1 ;n/2
+    shr ecx ,1 ;n/2
+    mov eax, xr
+    mov ebx, xi
+    mov edx, matrizr
+    mov esi, matrizi
 bucle1:
     xor edi, edi
+    xorpd xmm0, xmm0
+    xorpd xmm1, xmm1
     mov ecx, n
 bucle2:
     movapd xmm2, [eax+edi] ;xr
@@ -37,17 +41,21 @@ bucle2:
     mulpd xmm5, [eax+edi] ;matrizi * xr
     mulpd xmm4, [ebx+edi] ;matrizr * xi
     addpd xmm4, xmm5 ;(matrizi * xr) + (matrizr * xi)
-    addpd xmm1, xmm0 ;acmulador ri
+    addpd xmm1, xmm4 ;acmulador ri
     add edi, 16
     loop bucle2
 
+    shl dword n, 4 ;n * 16 = tam * 8 = tam *sizeof(double) 
     add edx, n
     add esi, n
+    shr dword n, 4 ;n
     mov edi, i
-    lea ecx, rr
-    movapd [ecx+edi], xmm0
-    lea ecx, ri
-    movapd [ecx+edi], xmm1
+    mov ecx, rr
+    haddpd xmm0, xmm1 ;sumar horizontalmente resultados parciales
+    movlpd [ecx+edi*8], xmm0
+    mov ecx, ri
+    movhpd [ecx+edi*8], xmm0
+    inc dword i
     dec dword n2
     jnz bucle1
 
