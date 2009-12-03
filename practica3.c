@@ -7,6 +7,7 @@
 #define TRUE 1
 
 int dftc(double *, double *, double *, double *, double *, double *, int);
+int dft(double *, double *, double *, double *, double *, double *, int) __attribute__((cdecl));
 int matrizdft(double *,double *, int);
 int imprime(double *, double *,int , int);
 
@@ -25,8 +26,9 @@ main(){
     rr = (double *)malloc(tam*sizeof(double));
     ri = (double *)malloc(tam*sizeof(double));
     matrizdft(matrizr, matrizi, tam);
-    dftc(xr, xi, matrizr, matrizi, rr, ri, tam);
-    imprime(matrizr, matrizi, tam, FALSE);
+    //dftc(xr, xi, matrizr, matrizi, rr, ri, tam);
+    printf("muere dentro\n"); fflush(stdout);
+    dft(xr, xi, matrizr, matrizi, rr, ri,0); //tam/2);
     imprime(rr, ri, tam, TRUE);
     free(matrizr);
     free(matrizi);
@@ -39,12 +41,12 @@ main(){
 
 int dftc(double *xr, double *xi, double *matrizr, double *matrizi, double *rr, double *ri, int n) {
 //calcula la transformada discreta de fourier de un vector complejo
-    int i, j, ind;
+    int i, j;
     double tempr, tempi;
-    for (i=0, ind=0; i < n; i++, ind+=n) {
+    for (i=0; i < n; i++, matrizr+=n, matrizi+=n) {
 	for (j=0, tempr=0.0, tempi=0.0; j < n; j++){
-	    tempr += *(matrizr+ind+j) * xr[j] - *(matrizi+ind+j) * xi[j];
-	    tempi += *(matrizi+ind+j) * xr[j] + *(matrizr+ind+j) * xi[j];
+	    tempr += *(matrizr+j) * xr[j] - *(matrizi+j) * xi[j];
+	    tempi += *(matrizi+j) * xr[j] + *(matrizr+j) * xi[j];
 	}
 	rr[i] = tempr;
 	ri[i] = tempi;
@@ -53,26 +55,23 @@ int dftc(double *xr, double *xi, double *matrizr, double *matrizi, double *rr, d
 
 int matrizdft(double *matrizr,double *matrizi, int n){
 //genera una matriz dft de tamanno n
-    int i, j, ind;
+    int i, j;
     double pi2divn =-PI * 2 / n;
-    for (i=0, ind = 0; i<n; i++) {
+    for (i=0; i<n; i++, matrizr+=n, matrizi+=n) {
 	for (j=0; j<n; j++){
-	    *(matrizr+ind+j) = cos(pi2divn*i*j);
-	    *(matrizi+ind+j) = sin(pi2divn*i*j);
+	    *(matrizr+j) = cos(pi2divn*i*j);
+	    *(matrizi+j) = sin(pi2divn*i*j);
 	}
-	ind += n ;
     }
 }
 
 int imprime(double *matrizr, double *matrizi, int n, int v){
 //imprime matrices de tamanno n, si v true imprime vector
-    int i, j, ind; 
-
-    for (i=0, ind = 0; i<n; i++) {
+    int i, j; 
+    for (i=0; i<n; i++, matrizr+=n, matrizi+=n) {
 	for (j=0; j<n; j++)
-	    printf("% 2.2e % 2.2ei  ",*(matrizr+ind+j), *(matrizi+ind+j));
+	    printf("% 2.2e % 2.2ei  ",*(matrizr+j), *(matrizi+j));
 	printf("\n");
-	ind += n ;
 	if (v) break;
     }
 }
