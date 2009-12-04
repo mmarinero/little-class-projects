@@ -19,7 +19,6 @@ dft:
     mov dword i, 0
     mov dword n2, ecx
     shr dword n, 1 ;n/2
-    shr ecx ,1 ;n/2
     mov eax, xr
     mov ebx, xi
     mov edx, matrizr
@@ -46,15 +45,15 @@ bucle2:
     loop bucle2
 
     shl dword n, 4 ;n * 16 = tam * 8 = tam *sizeof(double) 
-    add edx, n
-    add esi, n
-    shr dword n, 4 ;n
+    add edx, n ;incrementar fila
+    add esi, n ;incrementar fila
+    shr dword n, 4 ;restaurar n
     mov edi, i
     mov ecx, rr
     haddpd xmm0, xmm1 ;sumar horizontalmente resultados parciales
-    movlpd [ecx+edi*8], xmm0
+    movlpd [ecx+edi*8], xmm0 ;guardar parte real
     mov ecx, ri
-    movhpd [ecx+edi*8], xmm0
+    movhpd [ecx+edi*8], xmm0 ;guardar parte imaginaria
     inc dword i
     dec dword n2
     jnz bucle1
