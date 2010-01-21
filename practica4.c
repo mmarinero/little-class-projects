@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+#include <string.h>
 #define leenum(dest, bucle, salir) \
 	__asm__ ("movl	$4,%%eax\n\t\
         movl     $3,%%eax\n\t\
@@ -56,7 +56,18 @@ leenum(a, "bucle", "salir");
 icadena(cadena2, strlen(cadena));
 leenum(b,"bucle1", "salir1");
 
-resultado=((2*pi*a)/sqrt(b));
+__asm__("\
+	finit\n\t\
+	fldpi\n\t\
+	fild %1\n\t\
+	fmulp %%st(1) #st0 = pi * a\n\t\
+	fild %2\n\t\
+	fsqrt #st0 = sqrt(b)\n\t\
+	fdivrp #st0 = pi*a/sqrt(b)\n\t\
+	fld %%st(0) #st0 = st1\n\t\
+	faddp #st0 = 2* pi * a/sqrt(b)\n\t\
+	"\
+	:"=t" (resultado): "m" (a), "m" (b));
 
 sprintf(cadena3,"Resultado: %f\n",resultado);
 icadena(cadena3, strlen(cadena3));
