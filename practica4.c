@@ -1,83 +1,63 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
+#define leenum(dest, bucle, salir) \
+	__asm__ ("movl	$4,%%eax\n\t\
+        movl     $3,%%eax\n\t\
+        movl     $0,%%ebx\n\t\
+        leal     (%1),%%ecx\n\t\
+        movl     $20,%%edx #long maxima\n\t\
+        int     $0x80\n\t\
+\n\t\
+        movl     %%eax,%%ecx #indice bucle +1 por el fin de linea\n\t\
+        decl     %%ecx\n\t\
+        xorl     %%edx,%%edx\n\t\
+        xorl    %%eax,%%eax\n\t\
+        lea     (%1),%%esi\n\t\
+        cld #esi se utilizara para recorrer la cadena\n\t\
+        cmpb     $'-',(%1)#comprobar negativo\n\t\
+        jnz     " bucle"\n\t" \
+        "incl     %%esi\n\t\
+        decl     %%ecx\n\t"\
+bucle":\n\t" \
+        "imull    $10,%%edx #el resultado se almacena en edx:eax pero solo se devolvera eax\n\t\
+        subb     $'0',(%%esi)    #transforma numero ascii en binario\n\t\
+        lodsb #no hay que extender el signo a eax, siempre positivo\n\t\
+        addl     %%eax,%%edx\n\t\
+        loop    " bucle"\n\t" \
+"\n\t\
+        movl     %%edx,%%eax\n\t\
+        cmp     $'-', (%1) #negar resultado si es negativo\n\t\
+        jnz     " salir "\n\t"\
+        "neg     %%eax\n\t"\
+salir":\n\t" \
+        "mov     %%eax, %0 #se guarda para que no se pierda con popa\n\t"\
+	:"=m" (dest) : "mr"(cadena):"eax", "ecx", "edx", "ebx", "esi" )
+
+#define icadena(origen, long) \
+	__asm__("\
+	movl     $4,%%eax\n\t\
+        movl     $1,%%ebx\n\t\
+        movl     %0,%%ecx\n\t\
+        int     $0x80\n\t"\
+	::"r" (origen), "d" (long):"eax", "ecx", "ebx")
 
 #define pi 3.1415926535897932384626433832795029L
 
-main()
-{
-
+main() {
+int a, b;
 double resultado;
 
-//printf("Introduzca el primer numero:");
+char cadena[]="Introduzca el numero a: ";
+char cadena2[] = "Introduzca el numero b: ";
+char cadena3[50];
 
-char *pidea="Introduzca el primer numero: ";
-	__asm__ __volatile__("	movl	$4,%%eax\n\
-				movl	$0,%%ebx\n\
-				movl	%0, %%ecx\n\
-				movl	$29,%%edx\n\
-				int	$0x80" : : "g"(pidea) );
-//scanf("%d",&a);
-//http://www.elrincondelc.com/nuevorincon/foros/viewtopic.php?t=15394&sid=b94b07cf59fa2cff3d936f93607c9032
+icadena(cadena, strlen(cadena));
+leenum(a, "bucle", "salir");
+icadena(cadena2, strlen(cadena));
+leenum(b,"bucle1", "salir1");
 
-int y, numa=0 ;
-   __asm__("movl $3, %%eax\n\t"
-          	 "movl $0, %%ebx\n\t"
-          	 "leal %1, %%ecx\n\t"
-          	 "movl $4, %%edx\n\t"
-          	 "int $0x80\n\t"
-          	 "movl %1, %%eax\n\t"
-           	: "=r"(numa)
-           	:"m"(y));
-
-int a;
-a=atoi((char*) &numa);
-
-//printf("\nIntroduzca el segundo numero:");
-
-char *pideb="\nIntroduzca el segundo numero: ";
-	__asm__("	movl	$4,%%eax\n\
-				movl	$0,%%ebx\n\
-				movl	%0, %%ecx\n\
-				movl	$31,%%edx\n\
-				int	$0x80" : : "g"(pideb) );
-
-//scanf("%d",&b);
-
-int x, numb=0 ;
-   __asm__ ("movl $3, %%eax\n\t"
-          	 "movl $0, %%ebx\n\t"
-          	 "leal %1, %%ecx\n\t"
-          	 "movl $4, %%edx\n\t"
-          	 "int $0x80\n\t"
-          	 "movl %1, %%eax\n\t"
-           	: "=r"(numb)
-           	:"m"(x));
-
-int b;
-b=atoi((char*) &numb);
-
-
-
-
-
-char *muestraResultado="\nEl resultado de la operacion es: ";
-	__asm__("	movl	$4,%%eax\n\
-				movl	$0,%%ebx\n\
-				movl	%0, %%ecx\n\
-				movl	$34,%%edx\n\
-				int	$0x80" : : "g"(muestraResultado) );
-printf("%d %d %f\n", a, b, sqrt(b));
 resultado=((2*pi*a)/sqrt(b));
 
-char res[100]="";
-sprintf(res,"%.6f\n",resultado);
-printf("%.6f\n",resultado);
-
-	__asm__("	movl	$4,%%eax\n\
-				movl	$0,%%ebx\n\
-				movl	%0, %%ecx\n\
-				movl	$100,%%edx\n\
-				int	$0x80" : : "g"(res) );
-
+sprintf(cadena3,"Resultado: %f\n",resultado);
+icadena(cadena3, strlen(cadena3));
 }
