@@ -1,0 +1,21 @@
+﻿C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1> "C:\Windows\Microsoft.NET\Framework\v2.0.50727\csc.exe" /t:library /utf8output /R:"C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\MusicLand.dll" /R:"C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll" /R:"C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll" /R:"C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll" /R:"C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll" /out:"C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\MusicLand.XmlSerializers.dll" /debug- /optimize+ /nostdlib /D:_DYNAMIC_XMLSERIALIZER_COMPILATION  "C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs"
+
+
+Compilador de Microsoft (R) Visual C# 2005 versión 8.00.50727.3053
+para Microsoft (R) Windows (R) 2005 Framework versión 2.0.50727
+(C) Microsoft Corporation 2001-2005. Reservados todos los derechos.
+
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(917,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1026,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1131,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1236,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1342,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1448,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1554,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1660,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1779,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(1943,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(2077,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(2214,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(2382,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza
+c:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\j4jtfmt6.0.cs(2533,24): warning CS0219: La variable 'refObjId' está asignada, pero su valor nunca se utiliza

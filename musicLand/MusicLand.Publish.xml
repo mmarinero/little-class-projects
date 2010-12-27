@@ -1,0 +1,15 @@
+<publishData>
+  <publishTarget publishUrl="C:\Users\Battou\Desktop\TGP\WebSite\">
+    <file relUrl="bin/Google.GData.Extensions.dll" publishTime="02/27/2009 15:55:18" />
+    <file relUrl="Stylesheet1.css" publishTime="01/04/2010 09:30:18" />
+    <file relUrl="login.aspx" publishTime="01/05/2010 00:33:09" />
+    <file relUrl="bin/Google.GData.Client.dll" publishTime="02/27/2009 15:55:18" />
+    <file relUrl="Web.config" publishTime="01/12/2010 16:58:39" />
+    <file relUrl="bin/MusicLand.XmlSerializers.dll" publishTime="01/12/2010 20:33:17" />
+    <file relUrl="bin/MusicLand.dll" publishTime="01/12/2010 20:33:16" />
+    <file relUrl="RegistroGrupo.aspx" publishTime="01/12/2010 17:55:04" />
+    <file relUrl="bin/MusicLand.pdb" publishTime="01/12/2010 20:33:16" />
+    <file relUrl="bin/Google.GData.YouTube.dll" publishTime="02/27/2009 15:55:18" />
+    <file relUrl="Default.aspx" publishTime="01/11/2010 17:06:14" />
+  </publishTarget>
+</publishData>

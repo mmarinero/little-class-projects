@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+	<HEAD>
+		<TITLE>Pr&aacute;ctica 1 Procesos</TITLE>
+		<META NAME="author" CONTENT="Mario Marinero" >
+		<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=ISO-8859-1" >
+		
+	</HEAD>
+	<BODY  BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0D00C7" ALINK="#00FF00" VLINK="#00FFFF">
+  		<CENTER><H1><A NAME="comienzo">Pr&aacute;ctica 1 Procesos</A></H1></CENTER>
+		<BR>
+		<HR>
+		<BR><BR>
+		Mario Marinero Domingo<BR><BR><BR>
+  		<HR>
+  		<H4>Secciones</H4>
+	 	<OL>
+ 		<LI> <A HREF="#subproducto">Documentaci&oacute;n de subproducto</A>
+			<OL>
+				<LI><A HREF="#especificacion">Especificaci&oacute;n</A>
+					<UL><LI>Objetivo</LI>
+					 <LI>Datos de entrada</LI>
+					 <LI>Datos de salida</LI>
+					 <LI>Bater&iacute;a de pruebas</LI>		
+					</UL></LI>
+				<LI><A HREF="#diseño">Dise&ntilde;o</A></LI>		
+				<LI><A HREF="#diagrama">Diagrama Modular</A></LI>
+				<LI><A HREF="#funciones">Funciones</LI></A>
+				<UL>	<LI>Main</LI>
+					<LI>Cargam1/m2</LI>
+					<LI>Multimatriz</LI>	 	
+				</UL>
+				<LI><A HREF="bateria">Bater&iacute;a de pruebas</LI>		
+		</OL><BR><BR>
+ 		<LI> Documentaci&oacute;n de producto
+		<OL>
+ 			<LI><A HREF="#especificacion2">Especificaci&oacute;n</A>
+			<UL>	
+				<LI>Objetivo</LI>
+				<LI>Datos de entrada</LI>
+				<LI>Datos de salida</LI>
+			</UL>
+			<LI><A HREF="#diseño">Dise&ntilde;o</A></LI>		
+			<LI><A HREF="#diagrama_modular">Diagrama Modular</A></LI>
+ 		   <LI> <A HREF="#funciones2">Funciones</A>
+ 		       <UL>
+ 		          <LI>Main</A>
+ 		          <LI>Reparto</A>
+ 		          <LI>reconstruir</A>
+ 		       </UL>
+			<LI><A HREF="bateria2">Bater&iacute;a de pruebas</LI>		
+		</OL></OL>
+		<BR><BR><BR><HR>
+   <H1><A NAME="subproducto">Documentaci&oacute;n de subproducto</A></H1>
+   <HR>
+
+
+	<A NAME="especificacion"><H3><U>Especificaci&oacute;n</U></H3>
+
+	<H4>Objetivo:</H4>
+	<P>
+	En esta parte de la pr&aacute;ctica vamos a realizar un programa, para multiplicar matrices de números en punto flotante almacenadas en dos ficheros. Con el objetivo de usar el programa en la segunda parte que tratar&aacute; de ejecutar el mismo proceso de forma concurrente, mejorando la eficiencia si se dispone de más de un procesador
+	</P>
+	<H4>Entradas</H4>
+	<P>
+	La sintaxis del programa es la siguiente:
+	<B><BR><BR>subproducto &lt;prefijo&gt; &lt;fila1&gt; &lt;fila2&gt;</B>
+	<BR><BR>Donde:
+	<UL>
+	<LI><B>prefijo:</B>indica los ficheros que contienen los datos de las matrices a multiplicar,de tal forma,que seran los archivos <B>prefijo1.flt</B> y <B>prefijo2.flt</B>.Por ejemplo si introducimos matriz,los archivos seran matri1.flt y matriz2.flt</LI>
+	<LI><B>fila1:</B>indica la fila de la matriz del fichero prefjo1.flt desde donde se comienza a multiplicar</LI>
+	<LI><B>fila2:</B></LI> indica la fila de la matriz del fichero prefijo1.flt hasta donde acabar&aacute; de multiplicar 
+	</UL>
+	</P>
+	<H4>Entradas</H4>
+	<P>
+         Los ficheros de entrada, ser&aacuten; matrices de tama&ntilde;o 512x512. Aunque es modificable a trav&eacute;s de una constante TAMANNO</EM>
+	</P>
+	<H4>Salidas</H4>
+	<P>
+	El resultado de la multiplicaci&oacute;n.Se guardar&aacute; en un fichero con formato <B>prefijo-fila1-fila2.flt</B>
+	</P>
+
+	<A NAME="diseño"><H3><U>Dise&ntilde;o</U></H3>
+	<P>
+	El problema es facilmente divisible en tareas sencillas, usando las matrices como variables globales se simplifica en gran medida el paso de parametros
+	</P>
+	<P>
+	Filtrado de parametros, es importante que se mantegan dentro del rango y sean l&oacute;gicos.<BR>
+	Carga de las matrices en memoria para poder multiplicar m&aacute;s rapidamente y sin depender del acceso a disco durante la multiplicaci&oacute;.<BR>
+	Multiplicar finalmente las matrices y almacenar el resultado en un fichero, es importante aislar la funci&oacute;n multiplicaci&oacute;n al ser la que m&aacute;s complejidad algor&iacute;tmica plantea
+	</P>
+	<A NAME="diagrama"><H3><U>Diagrama modular</U></H3>
+	<BR>
+	<IMG SRC="dia_subproducto.png" ALT="Diagrama de subproducto">
+	
+   <A NAME="funciones"><H3><U>Funciones</U></H3>
+	<H3>main</H3>
+	<H4>Variables globales</H4>
+	<P><B>m1 y m2</B>que corresponden a las dos matrices que se multiplican son las únicas variables globales, su uso es bastante l&oacute; al ser esta multiplicaci&oacute; el objetivo del programa</P>
+	<H4>Variables locales</H4>
+	<P>
+	<UL>
+		<LI><B>char nombre1, nombre2, nombre3:</B> Cadenas para construir y almacenar los nombres de los tres ficheros involucrados</LI>
+		<LI><B>fp1, fp2, fp3:</B>Son punteros a fichero para cada uno de los tres involucrados</LI>
+		<LI><B>finicio, ffin:</B>son enteros que representan  las filas que componen la primera y &uacute;ltima del rango a multiplicar.</LI>	
+	</UL>
+	</P>
+	<H4>Secciones:</H4>
+	<OL>
+	<LI>Errores en numero de argumentos y escritura de nombres de fichero</LI>
+	<LI>conversion de argumentos y validación del rango</LI>
+	<LI>Carga en memoria y multiplicación, cada función se encarga de los ficheros que necesita ficheros</LI>
+	</OL>
+	<H2><B>cargam1/m2</B></H2>
+	<H4><B>Objetivo, par&aacute;metros y variables</B></H4>
+	<P>Carga las matrices en memoria, las dos funciones cargam1, cargam2 son identicas salvo que usan cada una su matriz respectiva</P>
+	<P><B>nombref, fmatriz:</B>usadas para pasar el nombre y el puntero a fichero de la matriz que tiene que cargar</P>
+	<P>Solo es necesaria una variable local i para controlar el bucle de lectura.
+	<H4>Secciones:</H4>
+	<P>La función de cargam1/2 es unicamente cargar la matriz en memoria</P>
+	<H2><B>multiplica</B></H2>
+	<H4><B>Objetivo y par&aacute;metros</B></H4>
+	<P>Realiza la multiplicación de las dos matrices usando solamente las filas especificadas de la primera matriz y escribiendo el resultado en el disco
+	Par&aacute;metros:
+	<UL>
+	<LI><B>finicio,ffin:</B>rango de matrices a multiplicar</LI>
+	<LI><B>nombref, resultado:</B>nombre del fichero resultado y un puntero a fichero</LI>
+	</UL>
+	<H4><B>Secciones</B></H4>
+	<P>La complejidad de la función reside exclusivamente en los 3 bucles anidados que realizan la multiplicación y escriben el resultado.
+	</P>
+	<A HREF="#comienzo">Volver al principio</A><BR>
+	<BR><BR><HR>
+	<H1><A NAME="subproducto">Documentaci&oacute;n de subproducto</A></H1>
+	<HR>
+
+		<A NAME="seccion1"><H2>Descripcion</H2></A>
+		<BLOCKQUOTE>
+Este apartado trata de crear concrurrencia en el producto de las matrices, es decir,
+crear un apartado de la practica q controle la creacion de N procesos independientes que 
+realicen las multiplicaciones de las matrices mediante llamadas al archivo subrproducto.c.
+Para realizardichas llamadas utilizaremos la funcion 'fork()',para crear un proceso y la funcion 
+'execl' para actuar en el proceso creado y poder ejecutar subproducto.c.<BR>
+La sintaxis utilizada para ejecutar producto.c es la siguiente:<BR>
+
+                </BLOCKQUOTE>
+                <HR>
+		<A NAME="seccion2"><H2>Codigo fuente</H2></A>
+<BLOCKQUOTE>
+Descripcion local de todas las partes del codigo fuente del programa, desglosado de manera
+que sea mas comoda su lectura y comprension.
+</BLOCKQUOTE>
+<A NAME="seccion3"><H4>Includes</H4></A>
+<BLOCKQUOTE>
+#include &lt;sys/types.h&gt; : <font size="-1">Rutinas para manipulacion de directorios</font>   <BR>
+#include &lt;sys/time.h&gt; : <font size="-1">Funciones para el manejo de la hora del sistema</font><BR>
+#include &lt;sys/wait.h&gt; : <font size="-1">Funciones para el manejo de creacion y espera de procesos</font><BR>
+#include &lt;unistd.h&gt; : <font size="-1">Funciones para el manejo de directorios </font> 	<BR>
+#include &lt;stdio.h&gt;	: <font size="-1">Creacion de ficheros temporales </font>	        	<BR>
+#include &lt;stdlib.h&gt; : <font size="-1">Manejo de procesos y busqueda y ordenacion de datos </font>	<BR>
+#include &lt;string.h&gt;: <font size="-1">Manejo de cadenas de caracteres </font>	 	<BR>
+#define TAMANNO 512 : <font size="-1">Definimos una variable TAMANNO global convalor512</font> 
+</BLOCKQUOTE><BR>
+		<A NAME="seccion4"><H4>Variables goblales</H4></A>
+<BLOCKQUOTE>
+ char inicio[128]; : <font size="-1">Utilizada para la conversion de un entero a caracter y pasarlo a la funcion "execl"</font>	<BR>
+ char fin[128]; : <font size="-1">Utilizada para la conversion de un entero a caracter y pasarlo a la funcion "execl"</font>	<BR>
+ char aux[128]; : <font size="-1">Utilizada para almacenar los nombres de los ficheros a utilizar</font>	<BR>
+ char aux2[128]; : <font size="-1">Utilizada para almacenar los nombres de los ficheros a utilizar</font>	<BR>
+ char prefijo[20]; : <font size="-1">Utilizada para almacenar el nombre del prefijo de los archivos</font><BR>
+</BLOCKQUOTE><BR>
+		<A NAME="seccion5"><H4>Declaracion de funciones utilizadas</H4></A>
+<BLOCKQUOTE>
+<DL>
+ <DT><U>void lectura(int,int,char[]);</U>       
+       <DD><font size="-1">Funcion que controla el numero de procesos a crear
+ y reparte el trabajo creandolos.Controla diversos aspectos como el tamaño de la matriz usada, es decir, si 
+ la ultima llamada a subproducto no completa el tamaño de la matriz, este incrementa el intervalo para asi 
+ completar todas las filas de la misma.</font>
+ <DT><U>void espera(int);</U>
+       <DD><font size="-1">Es una simple funcion que, segun el numero de procesos, espera a que acaben
+       los n procesos creados, para poder seguir con la ejecucion del programa de forma correcta.</font>
+ <DT><U>void escritura(int,int,char[]);</U>
+       <DD><font size="-1">Funcion que controla la lectura de los archivos creados por la funcion lectura
+       y los une todos, en secuencia, en un ultimo fichero de salida, el nombrado: &lt;prefijo&gt;Prod.c.</font></DD>
+</DL>
+</BLOCKQUOTE><BR>
+		<A NAME="seccion6">MAIN</H4></A>
+<BLOCKQUOTE>
+<font size="-1">El main, o funcion principal del programa, es solo una organizacion de lo que queremos
+conseguir, esto es por tanto, un esquema de como utilizar las funciones creadas de lectura, espera y escritura.
+Para una mayor comprension a priori del programa, se ha modularizado totalmente en bloques independientes
+que realizan una funcion concreta. Las partes principales son las siguientes:</font>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<A NAME="seccion7"><H5><U>Comprobacion de los parametros recibidos</U></H5></A>
+<font size="-1">Como bien sabemos, la hora de su ejecucion, el programa debe recibir 3 argumentos, 1-el nombre del ejecutable
+2-el prefijo de los archivos que contienen las matrices originales a multiplicar y 3-el numero de procesos que se
+desean utilizar.</font>
+</BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <A NAME="seccion8"><H5><U>Comprobacion del numero de procesos</U></H5></A>
+  <font size="-1">Tenemos que tener en cuenta que el numero de procesos no puede superar
+  el numero de filas de las matrices originales ya que si no, estariamos realizando llamadas 
+  innecesarias para la ultima multiplicacion, que seria repetida tantas veces como diferencia exista
+  entre el numero de filas y el numero de procesos dado.
+  Para ello se ha creado este sencillo control de tamaño.</font>
+  </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+ <A NAME="seccion9"><H5><U>Variables locales</U></H5></A>
+ <font size="-1"> Estas son las variables creadas para el flujo de la ejecucion del programa</font>
+ </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <A NAME="seccion10"><H5><U>Instante inicial</U></H5></A>
+   <font size="-1">Tomamos este punto como en instante inicial.Captaremos la hora del sistema
+   para, posteriormente, comparar con el instante final.</font>
+   </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+  <A NAME="seccion11"><H5><U>Eficiencia del intervalo</U></H5></A>
+  <font size="-1">Para conseguir una mayor eficiencia a la hora de dividir en intervalos la multiplicacion
+  de las matrices se ha implementado este sencillo pero pensado contol que comprueba el numero de filas
+  dentro de cada intervalo, con el fin de que esten mas repartidas y equitativas. Asi evitamos el caso ejemplo
+  tamaño=8 y procesos=4, <BR>
+  En vez de realizar 2 procesos con 3 filas y 2 procesos con 1 fila, con este control hariamos 4 procesos de 2 filas.</font>
+  </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+ <A NAME="seccion12"><H5><U>Lectura de ficheros</U></H5></A>
+  <font size="-1">LLegamos a la parte del programa que llama a la funcion lectura, donde se crearan los procesos
+  deseados para realizar la multplicacion de las matrices.
+  Vemos que la funcion tiene como parametros las variables locales rango(numero de procesos),intervalo(numero de filas 
+  a leer de la matriz) y prefijo para la lectura de los ficheros necesarios.</font>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+ <A NAME="seccion13"><H5><U>Espera de procesos</U></H5></A>
+  <font size="-1">La llamada a la funcion espera como se ha definido antes, realiza el numero de esperas necesarias
+  para terminar todos los procesos creados. Por ello, solo necesita un parametro, el numero de procesos creados. </font>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+ <A NAME="seccion14"><H5><U>Escritura de ficheros</U></H5></A>
+  <font size="-1">La funcion encargada de recopilar toda la informacion creada por los ficheros
+  creados por el subproducto es "lectura(). Los parametros necesarios para esta funcion son los mismos 
+  que para la funcion de lectura, el numero de procesos, el numero de filas a leer de cada fichero y el prefijo
+  de los ficheros creados. Toda la informacion es guardada en el fichero de salida ..Prod.c</font>
+ </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+ <A NAME="seccion15"><H5><U>Instante final</U></H5></A>
+ <font size="-1">La ultima parte del programa principal es la captura de la hora del sistema.
+ Se restara la hora inicial tomada en "instante inicial" y el valor resultante seran los segundos empleados.  para la ejecucion de la practica.</font>
+ </BLOCKQUOTE>
+
+<HR>
+<BLOCKQUOTE>
+<A NAME="seccion16"><H4><U>Funcion escritura</U></H4></A>
+ <font size="-1">La funcion de lectura de ficheros es la encargada de realizar la division de subproductos,
+  es decir, dado el numero de procesos, divide el numero de filas de las matrices en tantas partes como 
+  procesos haya. En primer lugar observa el si proceso creado en el 'for' principal (numero de procesos) es 
+  correcto o no, en el caso en el que devuelva un '-1' el programa ejecutaria la rutina de error y termiaria la ejecucion
+  del mismo. Como segundo paso, el programa se encarga de hacer un control respecto del tamaño de la matriz,
+  si la ultima division realizada no llega a recopilar todas las filas de la misma, este coloca un intervalo desde el
+  punto en el que se encuentre hasta el tamaño total de la matriz. Otro caso a controlar es cuando el intervalo 
+  que tenga q realizar se pasa del numero de filas, en este caso, el extremo del intervalo se iguala al numero maximo
+  que soporte la matriz.Por ultimo, en el 'for' principal realiza el incremento del "paso" q es utilizado como primer
+  elemento en cada intervalo, lo sumaremos  de forma normal si estamos dentro del rango, o igualaremos 
+  al tamaño de la matriz si este lo supera.
+</font>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<A NAME="seccion17"><H4>Funcion espera</H4></A>
+ <font size="-1">Como bien se explico anteriormente, la funcion espera recibe como unico parametro
+ el numero de procesos que se desean utilizar.La unica mision de esta funcion es realizar tantas esperas
+ como procesos haya mediante la funcion wait().
+ </font>
+ </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<A NAME="seccion18"><H4>Funcion lectura</H4></A>
+ <font size="-1">La funcion escritura recibe tres paramatros, el numero de procesos (int rango), el 
+ intervalo de filas a leer y escribir (int intervalo) y el nombre del prefijo de los archivos (char pre[]) que como es 
+ una cadena de vectores de la cual no sabemos su tamaño a priori, viene expresado con [].
+ la funcion básica que realiza es la de leer los ficheros creados por la ejecucion de "subproducto", para ello
+ volvemos a realizar el 'for' principal de la funcion lectura con la diferencia de que ahora se calcula el nombre
+ del archivo que ha debido ser creado y su inmediata inserccion en el archivo final, la forma de incrementar el paso
+ el intervalo, ademas de sus controles de tamaño, es de forma analoga a la funcion lectura.
+ </font>
+ </BLOCKQUOTE>
+
+<HR>
+<A HREF="#comienzo">Ir a comienzo de pagina<BR>
+<A HREF="Documentacion.html">Pagina principal</A>
+
+	</BODY>
+	</HTML>  

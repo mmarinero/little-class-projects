@@ -1,0 +1,76 @@
+﻿#header
+{
+	background-color: blue;
+	padding: 0.5em;
+	padding-bottom: 0;
+	text-align: center;
+	font-size: 6em;
+	color: white
+}
+#autentificacion
+{
+	float : right;
+}
+#header a:visited, #header a:link
+{
+	color: White;
+	text-decoration: none;
+}
+#header a:hover
+{
+	color: aqua;
+}
+#form1, #form2
+{
+	padding: 0.5em;
+	text-align: center;
+}
+#TBuscador
+{
+	width:15em;
+	margin-bottom:0.5em;
+}
+#BBuscador
+{
+	width:10em;
+	height:2.5em;
+	margin-bottom:2em;
+}
+#trackList
+{
+	width: 48%;
+	border-color:#3366CC;
+	border-width:1px;
+	float: left;
+}
+#trackList * a:visited, a:link
+{
+	text-decoration: none;
+}
+#trackList * a:hover
+{
+	text-decoration: underline;
+}
+	
+#youtube
+{
+	width: 48%;
+	float: right;
+}
+#spotify
+{
+	float:left;
+	color : White;
+	background-color: #80bc1e;
+	width : 48%;
+}
+#spotify img
+{
+	float:left;
+}
+#spotify p
+{
+	display:block;
+	vertical-align: middle;
+	text-align:center;
+}

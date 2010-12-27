@@ -1,0 +1,61 @@
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\bin\MusicLand.dll
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\bin\MusicLand.pdb
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\obj\Release\MusicLand.dll
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\obj\Release\MusicLand.pdb
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\bin\MusicLand.XmlSerializers.dll
+C:\Users\Battou\Documents\Visual Studio 2008\Projects\MusicLand1\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\bin\MusicLand.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\bin\MusicLand.XmlSerializers.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\bin\MusicLand.pdb
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\MusicLand.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\MusicLand.pdb
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand1\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand1\bin\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand1\bin\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand1\bin\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand1\bin\Google.GData.Client.dll
+C:\Users\mario\Desktop\MusicLand1\bin\Google.GData.Extensions.dll
+C:\Users\mario\Desktop\MusicLand1\bin\Google.GData.YouTube.dll
+C:\Users\mario\Desktop\MusicLand1\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mario\Desktop\MusicLand1\obj\Release\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand1\obj\Release\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand1\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand\bin\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand\bin\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand\bin\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand\bin\Google.GData.Client.dll
+C:\Users\mario\Desktop\MusicLand\bin\Google.GData.Extensions.dll
+C:\Users\mario\Desktop\MusicLand\bin\Google.GData.YouTube.dll
+C:\Users\mario\Desktop\MusicLand\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mario\Desktop\MusicLand\obj\Release\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand\obj\Release\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.XmlSerializers.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.pdb
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\Google.GData.Client.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\Google.GData.Extensions.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\bin\Google.GData.YouTube.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.dll
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.pdb
+C:\Users\mario\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.XmlSerializers.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\bin\MusicLand.pdb
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.dll
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.pdb
+C:\Users\Battou\Documents\My Dropbox\TGP\MusicLand\obj\Release\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand corregido\bin\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand corregido\bin\MusicLand.XmlSerializers.dll
+C:\Users\mario\Desktop\MusicLand corregido\bin\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand corregido\bin\Google.GData.Client.dll
+C:\Users\mario\Desktop\MusicLand corregido\bin\Google.GData.Extensions.dll
+C:\Users\mario\Desktop\MusicLand corregido\bin\Google.GData.YouTube.dll
+C:\Users\mario\Desktop\MusicLand corregido\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mario\Desktop\MusicLand corregido\obj\Release\MusicLand.dll
+C:\Users\mario\Desktop\MusicLand corregido\obj\Release\MusicLand.pdb
+C:\Users\mario\Desktop\MusicLand corregido\obj\Release\MusicLand.XmlSerializers.dll
