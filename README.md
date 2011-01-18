@@ -13,3 +13,4 @@ Code is not always polished and english/spanish comments and names are mixed. I 
 * Calculator written in Sparc assembly.
 * Music search webapp.
 * Float point triangle area calculation.
+* Sorting algorithms: Python implementation of bubble, selection, insertion, merge and quicksort. Just to learn, this quicksort is still 10x slower than sorted(list). They are not implemented in a very pythonic way. There is also a nice function to measure the performance of the different algorithms with loglog plots.
